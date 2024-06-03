@@ -1,0 +1,130 @@
+{% extends "landing/layout.html" %} {% block head %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/landing/login.css') }}"
+/>
+
+<script
+  src="{{ url_for('static', filename='js/landing/register.js') }}"
+  defer
+></script>
+{% endblock %} {% block content %}
+<div class="container">
+  <div class="columns is-centered is-mobile">
+    <div class="column is-half-tablet is-full-mobile">
+      <div class="box">
+        <div class="is-flex is-justify-content-center">
+          <img
+            class="logo mb-5"
+            src="{{ url_for('static', filename='img/logo.png') }}"
+          />
+        </div>
+        <div class="container">
+          {% with messages = get_flashed_messages() %}
+            {% if messages %}
+              {% for message in messages %}
+                <p class="help is-success">{{ message }}</p>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+          {% for fieldName, errorMessages in form.errors.items() %}
+            {% for err in errorMessages %}
+              <p class="help is-danger">{{fieldName}}: {{err}}</p>
+            {% endfor %}
+          {% endfor %}
+        </div>
+        <form id="register-form" class="px-5 mb-3" method="POST">
+          {{ form.csrf_token }}
+          <div class="field">
+            <div class="control has-icons-left">
+              <input
+                name="email"
+                class="input"
+                type="email"
+                placeholder="Email"
+                required
+              />
+              <span class="icon is-small is-left">
+                <i class="mdi mdi-email"></i>
+              </span>
+            </div>
+            <p id="email-help" class="help is-danger"></p>
+          </div>
+          <div class="field">
+            <div class="control has-icons-left">
+              <input
+                name="username"
+                class="input"
+                type="text"
+                placeholder="Username (alphanumeric characters only)"
+                pattern="^\w+$"
+                required
+              />
+              <span class="icon is-small is-left">
+                <i class="mdi mdi-account"></i>
+              </span>
+              <p id="username-help" class="help is-danger"></p>
+            </div>
+          </div>
+          <div class="field">
+            <div class="control has-icons-left">
+              <input
+                name="displayname"
+                class="input"
+                type="text"
+                placeholder="Display Name"
+                required
+              />
+              <span class="icon is-small is-left">
+                <i class="mdi mdi-badge-account"></i>
+              </span>
+            </div>
+          </div>
+          <div class="field">
+            <div class="control has-icons-left">
+              <input
+                name="password"
+                class="input"
+                type="password"
+                placeholder="Password"
+                required
+              />
+              <span class="icon is-small is-left">
+                <i class="mdi mdi-lock"></i>
+              </span>
+            </div>
+            <p id="password-help" class="help is-danger"></p>
+          </div>
+          <div class="field">
+            <div class="control has-icons-left">
+              <input
+                name="passwordconfirm"
+                class="input"
+                type="password"
+                placeholder="Confirm Password"
+                required
+              />
+              <span class="icon is-small is-left">
+                <i class="mdi mdi-lock-question"></i>
+              </span>
+            </div>
+            <p id="passwordconfirm-help" class="help is-danger"></p>
+          </div>
+          <button type="button" class="button is-link is-fullwidth mt-5">Register</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="columns is-centered is-mobile">
+    <div class="column is-half-tablet is-full-mobile">
+      <div class="box">
+        <div class="container is-flex is-justify-content-center">
+          <p class="subtitle is-6">
+            Already have an account? <a href="/login">Login!</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

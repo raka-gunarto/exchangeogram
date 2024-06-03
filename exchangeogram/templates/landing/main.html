@@ -1,0 +1,48 @@
+{% extends "landing/layout.html" %} {% block head %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/landing/main.css') }}"
+/>
+{% endblock %} {% block content %}
+<div class="container">
+  <div class="level">
+    <div class="level-item">
+      <img
+        class="logo-icon animate__animated animate__fadeIn"
+        src="{{ url_for('static', filename='img/logo-icon.png') }}"
+      />
+      <img
+        class="logo animate__animated animate__backInDown"
+        src="{{ url_for('static', filename='img/logo.png') }}"
+      />
+    </div>
+  </div>
+  <div class="level">
+    <div class="level-item">
+      <p
+        class="subtitle is-size-2-tablet is-size-5-mobile has-text-grey-light animate__animated animate__fadeIn text-like"
+      >
+        Like&nbsp
+      </p>
+      <p
+        class="subtitle is-size-2-tablet is-size-5-mobile has-text-grey-light animate__animated animate__fadeIn text-instagram"
+      >
+        Instagram,&nbsp
+      </p>
+      <p
+        class="subtitle is-size-2-tablet is-size-5-mobile mr-3 has-text-grey-light animate__animated animate__fadeIn text-but"
+      >
+        but
+      </p>
+      <img
+        class="img-ontheline animate__animated animate__fadeInDown"
+        src="{{ url_for('static', filename='img/on-the-line.gif') }}"
+      />
+    </div>
+  </div>
+  <div class="container is-flex is-justify-content-center">
+    <a class="button is-rounded btn-register mr-1 animate__animated animate__fadeIn" href="/register">Register On The Line</a>
+    <a class="button is-rounded btn-login has-text-white ml-1 animate__animated animate__fadeIn" href="/login">Login</a>
+  </div>
+</div>
+{% endblock %}

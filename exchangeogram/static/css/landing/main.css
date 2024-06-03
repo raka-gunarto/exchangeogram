@@ -1,0 +1,41 @@
+.logo,
+.logo-icon {
+  filter: invert(1);
+  height: 10vw;
+  min-height: 3rem;
+}
+
+.logo-icon {
+  animation-delay: 800ms;
+}
+
+.logo {
+  padding-top: 0.5rem;
+}
+
+.text-like {
+  animation-delay: 1000ms;
+}
+
+.text-instagram {
+  animation-delay: 1400ms;
+}
+
+.text-but {
+  animation-delay: 2000ms;
+}
+
+.img-ontheline {
+  animation-delay: 2400ms;
+  height: 5vw;
+  min-height: 2rem;
+}
+
+.btn-register {
+  animation-delay: 3000ms;
+}
+
+.btn-login {
+  animation-delay: 3000ms;
+  background-color: rgba(0, 0, 0, 0);
+}

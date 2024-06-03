@@ -1,0 +1,24 @@
+{% extends "app/layout.html" %} {% block head %}
+<script src="{{url_for('static', filename='js/app/post-upload.js')}}" defer></script>
+<script src="{{url_for('static', filename='js/app/feed.js')}}" defer></script>
+<script>
+  const current_id = {{current_user.id}};
+</script>
+{% endblock %}
+{% block content %}
+<div class="columns is-centered">
+  <div id="feed" class="column is-one-third-desktop is-half-tablet">
+    {% include "app/components/post-upload.html" %}
+  </div>
+</div>
+<div class="columns is-centered">
+  <div class="column is-one-third-desktop is-half-tablet">
+    <button id="load-more-posts" class="button is-link is-fullwidth">
+      <span class="icon">
+        <i class="mdi mdi-reload"></i>
+      </span>
+      &nbsp Load More
+    </button>
+  </div>
+</div>
+{% endblock %}

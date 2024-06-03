@@ -1,0 +1,50 @@
+<form
+  id="post-upload-form"
+  method="POST"
+  action="/app/post/upload"
+  enctype="multipart/form-data"
+>
+  {{postform.csrf_token}}
+  <div class="card">
+    <div class="card-header">
+      <p class="card-header-title">{{current_user.displayname}}</p>
+    </div>
+    <div class="card-image">
+      <figure class="image is-4by5">
+        <div class="file is-boxed has-ratio is-fullwidth">
+          <label class="file-label">
+            <input
+              class="file-input"
+              type="file"
+              name="image"
+              accept=".jpg,.jpeg,.png,.gif"
+              required
+            />
+            <span id="img-upload-btn" class="file-cta">
+              <span class="file-icon">
+                <i class="mdi mdi-upload"></i>
+              </span>
+              <span class="file-label has-text-centered"> Select Image </span>
+            </span>
+          </label>
+        </div>
+      </figure>
+    </div>
+    <div class="card-content px-3">
+      <p class="title is-6">{{current_user.displayname}}</p>
+      <textarea
+        name="caption"
+        class="input"
+        type="text"
+        placeholder="Tell us about your picture"
+        required
+        rows=3
+      ></textarea>
+    </div>
+    <div class="card-footer">
+      <button class="button is-radiusless is-primary card-footer-item">
+        Instantenously put it on the line!
+      </button>
+    </div>
+  </div>
+</form>

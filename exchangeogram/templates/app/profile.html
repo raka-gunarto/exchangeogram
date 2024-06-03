@@ -1,0 +1,44 @@
+{% extends "app/layout.html" %} {% block head %}
+<script
+  src="{{url_for('static', filename='js/app/post-upload.js')}}"
+  defer
+></script>
+<script
+  src="{{url_for('static', filename='js/app/profile.js')}}"
+  defer
+></script>
+<script>
+  const currentUserID = {{current_user.id}};
+  const targetUserID = {{user.id}};
+</script>
+{% endblock %} {% block content %}
+<div class="columns is-centered">
+  <div id="profile" class="column is-three-quarters-tablet">
+    <div class="box">
+      <div class="level is-mobile">
+        <div class="level-left">
+          <p class="title is-4 mb-0">{{user.displayname}}</p>
+        </div>
+        <div class="level-item">
+          <p class="subtitle is-6 mb-0 mr-2">
+            {{user.followers|length}} followers
+          </p>
+          <p class="subtitle is-6 mb-0">{{user.following|length}} following</p>
+        </div>
+        <div class="level-right">
+          {% if user.id == current_user.id %}
+          <button class="button is-small" disabled>Look it's me!</button>
+          {%elif user in current_user.following %}
+          <button class="button is-small" disabled>Following</button>
+          {%else%}
+          <a href="/app/follow/{{user.id}}" class="button is-small is-link">Follow</a>
+          {%endif%}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="columns is-centered">
+  <div id="posts" class="column is-one-third-desktop is-half-tablet"></div>
+</div>
+{% endblock %}

@@ -1,0 +1,61 @@
+<nav class="desktop-navbar level is-hidden-touch py-2 px-4" role="navigation">
+  <a class="level-item" href="/">
+      <img
+        class="logo-icon"
+        src="{{ url_for('static', filename='img/logo-icon.png') }}"
+      />
+      <img
+        class="logo"
+        src="{{ url_for('static', filename='img/logo.png') }}"
+      />
+  </a>
+  <div class="level-right">
+    <div class="dropdown is-hoverable is-right">
+      <div class="dropdown-trigger">
+        <span class="icon is-medium">
+          <i class="mdi mdi-24px mdi-heart-outline"></i>
+        </span>
+      </div>
+      <div class="dropdown-menu">
+        <div class="dropdown-content" id="notifications">
+          
+        </div>
+      </div>
+    </div>
+    <div class="dropdown is-hoverable is-right">
+      <div class="dropdown-trigger">
+        <span class="icon is-medium">
+          <i class="mdi mdi-24px mdi-account"></i>
+        </span>
+      </div>
+      <div class="dropdown-menu">
+        <div class="dropdown-content">
+          <div class="dropdown-item">
+            Hello {{ current_user.displayname }}!
+          </div>
+          <hr class="dropdown-divider">
+          <a class="dropdown-item" href="/u/{{current_user.id}}">
+            <div class="icon-text">
+              <span class="icon has-text-danger">
+                <i class="mdi mdi-account"></i>
+              </span>
+              <span>
+                My Profile
+              </span>
+            </div>
+          </a>
+          <a class="dropdown-item" href="/logout">
+            <div class="icon-text">
+              <span class="icon has-text-danger">
+                <i class="mdi mdi-logout"></i>
+              </span>
+              <span>
+                Logout
+              </span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

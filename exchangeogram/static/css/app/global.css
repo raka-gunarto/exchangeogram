@@ -1,0 +1,45 @@
+.logo,
+.logo-icon {
+  height: 3rem;
+}
+
+.logo {
+  margin-top: 0.3rem;
+}
+
+.desktop-navbar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: #ffffff;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.touch-navbar {
+  border-top: 1px solid #dbdbdb;
+  background-color: #ffffff;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.touch-navbar *:not(:last-child) {
+  border-right: 2px solid #dbdbdb;
+}
+
+@media (min-width: 1024px) {
+  html {
+    padding-top: 4rem;
+  }
+}
+
+html {
+  background-color: #fafafa;
+}
+
+#img-upload-btn {
+  height: 100%;
+}

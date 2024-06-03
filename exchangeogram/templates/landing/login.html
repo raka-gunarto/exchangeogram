@@ -1,0 +1,71 @@
+{% extends "landing/layout.html" %} {% block head %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/landing/login.css') }}"
+/>
+{% endblock %} {% block content %}
+<div class="container">
+  <div class="columns is-centered is-mobile">
+    <div class="column is-half-tablet is-full-mobile">
+      <div class="box">
+        <div class="is-flex is-justify-content-center">
+          <img
+            class="logo mb-5"
+            src="{{ url_for('static', filename='img/logo.png') }}"
+          />
+        </div>
+        <div class="container">
+          {% for fieldName, errorMessages in form.errors.items() %} {% for err
+          in errorMessages %}
+          <p class="help is-danger">{{err}}</p>
+          {% endfor %} {% endfor %}
+        </div>
+        <form class="px-5 mb-3" method="POST">
+          {{ form.csrf_token }}
+          <div class="field">
+            <div class="control has-icons-left">
+              <input
+                name="user_identifier"
+                class="input"
+                type="text"
+                placeholder="Username or Email"
+                required
+              />
+              <span class="icon is-small is-left">
+                <i class="mdi mdi-account"></i>
+              </span>
+            </div>
+          </div>
+          <div class="field">
+            <div class="control has-icons-left">
+              <input
+                class="input"
+                type="password"
+                name="password"
+                placeholder="Password"
+                required
+              />
+              <span class="icon is-small is-left">
+                <i class="mdi mdi-lock"></i>
+              </span>
+            </div>
+            <a class="help is-link" href="/forgot">Forgot Password?</a>
+          </div>
+          <button class="button is-link is-fullwidth mt-5">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="columns is-centered is-mobile">
+    <div class="column is-half-tablet is-full-mobile">
+      <div class="box">
+        <div class="container is-flex is-justify-content-center">
+          <p class="subtitle is-6">
+            Don't have an account? <a href="/register">Register on the line!</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
